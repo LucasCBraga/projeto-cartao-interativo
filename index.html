@@ -1,34 +1,91 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cartão Interativo</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link
+    href="https: //fonts.googleapis.com/css2?family= Work+Sans: família= Trabalho+Sans:ital,peso@0,300;1,300 & display=swap"
+    rel="stylesheet">
+  <!-- Bootstrap Icons -->
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <!-- Scripts -->
+  <script src="./assets/js/scripts.js" defer></script>
 </head>
+
 <body>
+  <!-- imagem de fundo -->
+  <img src="./assets/img/bg-main-desktop.png" alt="imagem-fundo" class="bg-imagem-desktop">
+  <img src="./assets/img/bg-main-mobile.png" alt="imagem-fundo-mobile" class="bg-imagem-mobile">
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+  <div class="container">
+    <section class="display-cartao">
+      <div class="cartao-frente">
+        <img src="./assets/img/bg-card-front.png" alt="frente do cartao" class="cartao-imagem-frente">
+        <img src="./assets/img/card-logo.svg" alt="logo do cartao branco" class="cartao-logo">
+        <!-- Dados do cartao -->
+        <p class="numero-cartao-display"> 0000 0000 0000 0000 </p>
+        <p class="nome-cartao-display">Jane Appleseed</p>
+        <p class="expiracao-mes-display"></p>
+        <p class="expiracao-ano-display">0000</p>
+      </div>
+      <div class="cartao-verso">
+        <img src="./assets/img/bg-card-back.png" alt="verso do cartao" class="cartao-imagem-verso">
+        <p class="cvc-cartao">000</p>
+      </div>
+    </section>
+    <!-- Formulario -->
+    <section class="detalhe-cartao">
+      <form action="/action_page.php" id="formulario" name="formulario">
 
-  000
+        <label for="nome-cartao">Nome no cartao</label>
+        <input
+        id="nome-cartao" 
+        class="nome-cartao" 
+        type="text" name="nome-cartao" 
+        placeholder="e.g. Jane Appleseed"
+        oninput="inputName()">
+        <p id="errorMsg"></p>
 
-  Cardholder Name
-  e.g. Jane Appleseed
+        <label for="numero-cartao">Numero do cartao</label>
+        <input 
+        id="numero-cartao" 
+        class="numero-cartao" 
+        type="text" name="numero-cartao"
+        placeholder="e.g. 1234 5678 9123 0000"
+        oninput="inputCardNum()">
+        <p id="card-num-error"></p>
 
-  Card Number
-  e.g. 1234 5678 9123 0000
+        <div class="flex">
+          <label for="expiracao-data" class="expiracao-data"> Exp. Date (MM/YY)</label>
+          <input
+          class="expiracao"
+          type="text"
+          name="expiracao-data"
+          placeholder="MM"
+          oninput="inputMM()">
 
-  Exp. Date (MM/YY)
+
+        </div>
+
+      </form>
+    </section>
+  </div>
+
+
+
+
+ 
+
   MM
   YY
 
@@ -42,10 +99,10 @@
   Thank you!
   We've added your card details
   Continue
-  
+
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
 </body>
+
 </html>

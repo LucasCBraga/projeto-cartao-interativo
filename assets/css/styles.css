@@ -1,0 +1,13 @@
+:root {
+    --main-color: #d92123;
+    --primary-text-color: #fff;
+    --secondary-text-color: #191919;
+    --secondary-color: #868686;
+    --tertiary-color: #eff3f4;
+    --secondary-bg-color: #5c1011;
+  }
+
+
+body {
+    font-family: 'Work Sans', sans-serif
+}
