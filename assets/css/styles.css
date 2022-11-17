@@ -1,28 +1,28 @@
 :root {
-    --main-color: #d92123;
-    --primary-text-color: #fff;
-    --secondary-text-color: #191919;
-    --secondary-color: #868686;
-    --tertiary-color: #eff3f4;
-    --secondary-bg-color: #5c1011;
-    /* tutorial */
-    --debug : 1px solid red;
-  }
+  --main-color: #d92123;
+  --primary-text-color: #fff;
+  --secondary-text-color: #191919;
+  --secondary-color: #868686;
+  --tertiary-color: #eff3f4;
+  --secondary-bg-color: #5c1011;
+  /* tutorial */
+  --debug: 1px solid red;
+}
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    height: 100vh;
-    font-family: 'Work Sans', sans-serif;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
+  height: 100vh;
+  font-family: "Work Sans", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
 }
 
 .bg-imagem-desktop {
@@ -54,19 +54,30 @@ body {
 .cartao-frente,
 .cartao-verso {
   position: absolute;
-  width: fit-content; 
+  width: fit-content;
 }
 
 .cartao-imagem-frente,
-.cartao-imagem-verso{
+.cartao-imagem-verso {
   border-radius: 12px;
-  box-shadow: rgb(0, 0, 0,0.2) 0px 20px 30px;
+  box-shadow: rgb(0, 0, 0, 0.2) 0px 20px 30px;
 }
 
-.cartao-frente{left: 210px; top: 130px;}
-.cartao-verso{left: 280px; bottom: 130px;}
+.cartao-frente {
+  left: 210px;
+  top: 130px;
+}
+.cartao-verso {
+  left: 280px;
+  bottom: 130px;
+}
 
-.cartao-logo, .numero-cartao-display, .nome-cartao-display, .expiracao-mes-display, .expiracao-ano-display, .expiracao-display{
+.cartao-logo,
+.numero-cartao-display,
+.nome-cartao-display,
+.expiracao-mes-display,
+.expiracao-ano-display,
+.expiracao-display {
   position: absolute;
 }
 
@@ -84,10 +95,61 @@ body {
   letter-spacing: 5px;
 }
 
+.nome-cartao-display {
+  bottom: 30px;
+  left: 30px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
 
+.expiracao-mes-display {
+  bottom: 30px;
+  right: 85px;
+  font-size: 0.9em;
+}
+
+.expiracao-ano-display {
+  bottom: 30px;
+  right: 30px;
+  font-size: 0.9em;
+}
+
+.cvc-cartao {
+  position: absolute;
+  right: 60px;
+  bottom: 117px;
+}
 
 .detalhe-cartao {
   position: relative;
   flex: 0 1 45%;
 }
 
+/* Formulário */ 
+form {
+  height: 350px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+
+label .numero-cartao, 
+label .expiracao-data, 
+label .cvc {
+  margin-top: 30px;
+}
+
+input {
+  outline: 0px solid hsl(249, 99%, 64%);
+  border-top-color: hsl(249, 99%, 64%);
+  border-right-color: hsl(278, 94%, 30%);
+  border-bottom-color: hsl(249, 99%, 64%);
+  border-left-color: hsl(278, 94%, 30%);
+}
+
+input::placeholder{font-weight: 300;}
