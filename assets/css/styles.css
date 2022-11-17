@@ -5,7 +5,6 @@
   --secondary-color: #868686;
   --tertiary-color: #eff3f4;
   --secondary-bg-color: #5c1011;
-  
   /* tutorial */
   --debug: 1px solid red;
 }
@@ -22,7 +21,6 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   font-size: 18px;
 }
 
@@ -45,7 +43,6 @@ body {
   display: flex;
 }
 
-/* Dados do cartão */
 .display-cartao {
   flex: 0 1 600px;
   position: relative;
@@ -116,6 +113,12 @@ body {
   font-size: 0.9em;
 }
 
+.expiracao-display {
+  bottom: 30px;
+  right: 75px;
+  font-size: 0.9em;
+}
+
 .cvc-cartao {
   position: absolute;
   right: 60px;
@@ -130,7 +133,7 @@ body {
   flex: 0 1 45%;
 }
 
-/* Formulário */
+/* Formulário */ 
 form {
   height: 350px;
 }
@@ -143,13 +146,21 @@ label {
   letter-spacing: 2px;
 }
 
-label .numero-cartao,
-label .expiracao-data,
+label .numero-cartao, 
+label .expiracao-data, 
 label .cvc {
   margin-top: 30px;
 }
 
 input {
+  width: 350px;
+  padding: 10px 10px;
+  border: 1px solid hsla(279, 6%, 55%, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input:focus {
   outline: 0px solid hsl(249, 99%, 64%);
   border-top-color: hsl(249, 99%, 64%);
   border-right-color: hsl(278, 94%, 30%);
@@ -157,14 +168,9 @@ input {
   border-left-color: hsl(278, 94%, 30%);
 }
 
-input::placeholder {
-  font-weight: 300;
-}
+input::placeholder{font-weight: 300;}
 
-#errorMsg,
-#card-num-error,
-#expiry-error,
-#error-cvc {
+#errorMsg, #card-num-error, #expiry-error, #error-cvc {
   color: hsl(0, 0%, 100%);
   font-size: 12px;
   font-weight: 500;
@@ -172,8 +178,7 @@ input::placeholder {
   padding-left: 2px;
 }
 
-#expiry-error,
-#error-cvc {
+#expiry-error, #error-cvc {
   letter-spacing: 1px;
 }
 
@@ -192,8 +197,7 @@ input::placeholder {
   width: 135px;
 }
 
-input .expiracao,
-input .cvc {
+input .expiracao, input .cvc {
   margin-top: 5px;
 }
 
@@ -215,18 +219,20 @@ button:hover {
   background-color: hsl(278, 68%, 11%, 0.8);
 }
 
+.hidden {
+  display: none;
+} 
+
 /* Responsividade */
-@media screen and (max-width: 1024px) {
-  .cartao-frente {
-    left: 75px;
-  }
-  .cartao-verso {
-    left: 140px;
-  }
+
+@media screen and (max-width:1024px) {
+  .cartao-frente {left: 75px;}
+  .cartao-verso {left: 140px;}
 }
 
+/* Tablet */
 @media screen and (max-width: 768px) {
-  body {
+  body{
     flex-direction: column;
   }
 
@@ -241,5 +247,83 @@ button:hover {
   .bg-imagem-mobile {
     display: block;
     position: absolute;
+    width: 100%;
+    height: 300px;
+  }
+  
+  .cartao-frente {
+    top: 100px;
+    z-index: 5;
+  }
+
+  .cartao-verso {
+    top: 0px;
+    left: 300px;
+  }
+
+  .cartao-imagem-frente, .cartao-imagem-verso {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .cvc-cartao {
+    top: 97px;
+    bottom: 0;
+    right: 45px;
+  }
+
+  .detalhe-cartao {
+    position: relative;
+    flex: 0 1 50%;
+  }
+}
+/* Mobile */
+@media screen and (max-width:425px) {
+
+  .bg-imagem-mobile {
+    height: 250px;
+  }  
+
+  .cartao-imagem-frente {
+    top:100px;
+    left:30px;
+  }
+
+  .cartao-imagem-verso {
+    left: 100px;
+  }
+
+  .cartao-imagem-frente, .cartao-imagem-verso {
+    max-width: 300px;
+  }
+
+  .numero-cartao-display {
+    font-size: 14px;
+    bottom: 60px;
+    letter-spacing: 4px;
+  }
+
+  .nome-cartao-display {
+    font-size: 12px;
+  }
+
+  .expiracao-mes-display, .expiracao-ano-display, .expiracao-display {
+    font-size: 12px;
+  }
+
+  .expiracao-ano-display {
+    right: 38px;
+  }
+
+  .cvc-cartao {
+    font-size: 12px;
+    bottom: unset;
+    top: 75px;
+    right: 38px;
+  }
+
+  .detalhe-cartao {
+    position: relative;
+    flex: 0 1 65%;
   }
 }
