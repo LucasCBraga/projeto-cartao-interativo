@@ -224,7 +224,6 @@ button:hover {
 } 
 
 /* Responsividade */
-
 @media screen and (max-width:1024px) {
   .cartao-frente {left: 75px;}
   .cartao-verso {left: 140px;}
