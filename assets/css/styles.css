@@ -5,6 +5,7 @@
   --secondary-color: #868686;
   --tertiary-color: #eff3f4;
   --secondary-bg-color: #5c1011;
+  
   /* tutorial */
   --debug: 1px solid red;
 }
@@ -44,6 +45,7 @@ body {
   display: flex;
 }
 
+/* Dados do cartão */
 .display-cartao {
   flex: 0 1 600px;
   position: relative;
@@ -128,7 +130,7 @@ body {
   flex: 0 1 45%;
 }
 
-/* Formulário */ 
+/* Formulário */
 form {
   height: 350px;
 }
@@ -141,8 +143,8 @@ label {
   letter-spacing: 2px;
 }
 
-label .numero-cartao, 
-label .expiracao-data, 
+label .numero-cartao,
+label .expiracao-data,
 label .cvc {
   margin-top: 30px;
 }
@@ -155,9 +157,14 @@ input {
   border-left-color: hsl(278, 94%, 30%);
 }
 
-input::placeholder{font-weight: 300;}
+input::placeholder {
+  font-weight: 300;
+}
 
-#errorMsg, #card-num-error, #expiry-error, #error-cvc {
+#errorMsg,
+#card-num-error,
+#expiry-error,
+#error-cvc {
   color: hsl(0, 0%, 100%);
   font-size: 12px;
   font-weight: 500;
@@ -165,7 +172,8 @@ input::placeholder{font-weight: 300;}
   padding-left: 2px;
 }
 
-#expiry-error, #error-cvc {
+#expiry-error,
+#error-cvc {
   letter-spacing: 1px;
 }
 
@@ -184,7 +192,8 @@ input::placeholder{font-weight: 300;}
   width: 135px;
 }
 
-input .expiracao, input .cvc {
+input .expiracao,
+input .cvc {
   margin-top: 5px;
 }
 
@@ -207,14 +216,17 @@ button:hover {
 }
 
 /* Responsividade */
-
-@media screen and (max-width:1024px) {
-  .cartao-frente {left: 75px;}
-  .cartao-verso {left: 140px;}
+@media screen and (max-width: 1024px) {
+  .cartao-frente {
+    left: 75px;
+  }
+  .cartao-verso {
+    left: 140px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  body{
+  body {
     flex-direction: column;
   }
 
@@ -230,5 +242,4 @@ button:hover {
     display: block;
     position: absolute;
   }
-  
 }
