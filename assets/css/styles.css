@@ -121,6 +121,9 @@ body {
 }
 
 .detalhe-cartao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   flex: 0 1 45%;
 }
@@ -153,3 +156,79 @@ input {
 }
 
 input::placeholder{font-weight: 300;}
+
+#errorMsg, #card-num-error, #expiry-error, #error-cvc {
+  color: hsl(0, 0%, 100%);
+  font-size: 12px;
+  font-weight: 500;
+  padding-top: 2px;
+  padding-left: 2px;
+}
+
+#expiry-error, #error-cvc {
+  letter-spacing: 1px;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.flex .expiracao {
+  width: 90px;
+  margin-right: 5px;
+}
+
+.flex .cvc {
+  width: 135px;
+}
+
+input .expiracao, input .cvc {
+  margin-top: 5px;
+}
+
+button {
+  all: unset;
+  text-align: center;
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+
+button:hover {
+  background-color: hsl(278, 68%, 11%, 0.8);
+}
+
+/* Responsividade */
+
+@media screen and (max-width:1024px) {
+  .cartao-frente {left: 75px;}
+  .cartao-verso {left: 140px;}
+}
+
+@media screen and (max-width: 768px) {
+  body{
+    flex-direction: column;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .bg-imagem-desktop {
+    display: none;
+  }
+
+  .bg-imagem-mobile {
+    display: block;
+    position: absolute;
+  }
+  
+}
