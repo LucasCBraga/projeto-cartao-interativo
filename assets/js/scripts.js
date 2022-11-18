@@ -30,7 +30,7 @@ function inputCardNum() {
     //Divida o número do cartão em grupos de 4//
     let sessaoNumeroCartao = formatoNumeroCartao.match(/\d{1,4}/g);
     if (sessaoNumeroCartao !== null) {
-        formatoNumeroCartao = sessaoNumeroCartao.join("");
+        formatoNumeroCartao = sessaoNumeroCartao.join(" ");
     } 
     //Se o número do cartão formatado for diferente do que é mostrado, altere o valor//
     if (inputNumeroCartao !== formatoNumeroCartao) {
@@ -52,3 +52,97 @@ function inputMM() {
         expericaoMes.innerHTML = expiracao[0].value;
     }
 }
+
+function inputYY() {
+    let formatoYY = expiracao[1].value;
+    formatoYY = formatoYY.substring(0, 4);
+    expiracao[1].value = formatoYY;
+    if (expiracao[1].value === "") {
+        expericaoAno.innerHTML = "0000";
+    } else {
+        expericaoAno.innerHTML = expiracao[1].value;
+    }
+}
+
+function inputCvc() {
+    let formatoCvc = cvc.value;
+    formatoCvc = formatoCvc.substring(0, 3);
+    cvc.value = formatoCvc;
+    if (cvc.value === "") {
+        cvcDisplay.innerHTML = "000";
+    } else {
+        cvcDisplay.innerHTML = cvc.value;
+    }
+}
+
+function massValidade() {
+    function validadeNome() {
+        let nomecartaoExp = /^[A-Z a-z]+ $/;
+        let errorMsg = document.getElementById("errorMsg");
+        if (nomeCartao.value.match(nomecartaoExp)) {
+            errorMsg.textContent = "";
+        } else {
+            errorMsg.innerHTML = "Por favor insira o nome no cartão!";
+        }
+    }
+
+    function validadeCartao() {
+        let cartaoNumErro = document.getElementById("card-num-error");
+        if (numeroCartao.value.length > 0 && numeroCartao.value.length < 16) {
+            cartaoNumErro.innerHTML = "Formato Errado";
+        } else if (numeroCartao.value == "") {
+            cartaoNumErro.innerHTML = "Nao pode ser em branco!";
+        } else {
+            cartaoNumErro.innerHTML = "";
+        }
+    }
+
+    function validadeExpiracao() {
+        let expericaoMes = /^(0[0-9]|1[1-2]){2}$/;
+        let expericaoAno = /^[0-9][0-2]{4}$/;
+
+        if (expiracao[0].value.match(expericaoMes)) {
+            expiryErrorMsg.innerHTML = "";
+        } else if (
+            expiracao[0].value.match(expericaoMes) &&
+            expiracao[1].value.match(expericaoAno)
+    ) {
+        expiryErrorMsg.innerHTML = "";
+    } else if (expiracao[0] == "") {
+        expiryErrorMsg.innerHTML = "Nao pode ser em branco!";
+    } else {
+        expiryErrorMsg.innerHTML = "Formato Errado!";
+    }
+  }
+}
+
+    function validadeCvc() {
+        let cvcErrorMsg = document.getElementById("error-cvc");
+        let cvcExp = /^[0-9]{3}$/;
+        if (cvc.value === "") {
+            cvcErrorMsg.innerHTML = "Nao pode ser em branco";
+        } else if (cvc.value.match(cvcExp)) {
+            cvcErrorMsg.innerHTML = "";
+        } else {
+            cvcErrorMsg.innerHTML = "Formato Errado!";
+        }
+    }
+
+    validadeCartao();
+    validadeNome();
+    validadeExpiracao();
+    validadeCvc();
+    if (
+        nomeNoCartao.innerHTML == nomeCartao.placeholder ||
+        numeroNoCartao.innerHTML == numeroCartao.placeholder ||
+        expericaoMes.innerHTML == "000" ||
+        expericaoAno.innerHTML == "000" ||
+        cvcDisplay.innerHTML === "000" ||
+        (numeroCartao.value.length > 0 && numeroCartao.value.length < 16)
+    ) {
+        return false;
+    } else {
+        return true;
+    }
+ 
+    //Botão de envio//
