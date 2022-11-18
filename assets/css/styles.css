@@ -2,9 +2,6 @@
   --main-color: #d92123;
   --primary-text-color: #fff;
   --secondary-text-color: #191919;
-  --secondary-color: #868686;
-  --tertiary-color: #eff3f4;
-  --secondary-bg-color: #5c1011;
   /* tutorial */
   --debug: 1px solid red;
 }
@@ -133,7 +130,7 @@ body {
   flex: 0 1 45%;
 }
 
-/* Formulário */ 
+/* Formulário */
 form {
   height: 350px;
 }
@@ -146,8 +143,8 @@ label {
   letter-spacing: 2px;
 }
 
-label .numero-cartao, 
-label .expiracao-data, 
+label .numero-cartao,
+label .expiracao-data,
 label .cvc {
   margin-top: 30px;
 }
@@ -168,9 +165,14 @@ input:focus {
   border-left-color: hsl(278, 94%, 30%);
 }
 
-input::placeholder{font-weight: 300;}
+input::placeholder {
+  font-weight: 300;
+}
 
-#errorMsg, #card-num-error, #expiry-error, #error-cvc {
+#errorMsg,
+#card-num-error,
+#expiry-error,
+#error-cvc {
   color: hsl(0, 0%, 100%);
   font-size: 12px;
   font-weight: 500;
@@ -178,7 +180,8 @@ input::placeholder{font-weight: 300;}
   padding-left: 2px;
 }
 
-#expiry-error, #error-cvc {
+#expiry-error,
+#error-cvc {
   letter-spacing: 1px;
 }
 
@@ -197,7 +200,8 @@ input::placeholder{font-weight: 300;}
   width: 135px;
 }
 
-input .expiracao, input .cvc {
+input .expiracao,
+input .cvc {
   margin-top: 5px;
 }
 
@@ -221,17 +225,21 @@ button:hover {
 
 .hidden {
   display: none;
-} 
+}
 
 /* Responsividade */
-@media screen and (max-width:1024px) {
-  .cartao-frente {left: 75px;}
-  .cartao-verso {left: 140px;}
+@media screen and (max-width: 1024px) {
+  .cartao-frente {
+    left: 75px;
+  }
+  .cartao-verso {
+    left: 140px;
+  }
 }
 
 /* Tablet */
 @media screen and (max-width: 768px) {
-  body{
+  body {
     flex-direction: column;
   }
 
@@ -249,7 +257,7 @@ button:hover {
     width: 100%;
     height: 300px;
   }
-  
+
   .cartao-frente {
     top: 100px;
     z-index: 5;
@@ -260,7 +268,8 @@ button:hover {
     left: 300px;
   }
 
-  .cartao-imagem-frente, .cartao-imagem-verso {
+  .cartao-imagem-frente,
+  .cartao-imagem-verso {
     max-width: 400px;
     width: 100%;
   }
@@ -277,22 +286,22 @@ button:hover {
   }
 }
 /* Mobile */
-@media screen and (max-width:425px) {
-
+@media screen and (max-width: 425px) {
   .bg-imagem-mobile {
     height: 250px;
-  }  
+  }
 
   .cartao-imagem-frente {
-    top:100px;
-    left:30px;
+    top: 100px;
+    left: 30px;
   }
 
   .cartao-imagem-verso {
     left: 100px;
   }
 
-  .cartao-imagem-frente, .cartao-imagem-verso {
+  .cartao-imagem-frente,
+  .cartao-imagem-verso {
     max-width: 300px;
   }
 
@@ -306,7 +315,9 @@ button:hover {
     font-size: 12px;
   }
 
-  .expiracao-mes-display, .expiracao-ano-display, .expiracao-display {
+  .expiracao-mes-display,
+  .expiracao-ano-display,
+  .expiracao-display {
     font-size: 12px;
   }
 

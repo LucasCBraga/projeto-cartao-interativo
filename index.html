@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cartão Interativo</title>
-    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon-32x32.png"
+      type="image/x-icon"
+    />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
@@ -24,15 +28,31 @@
 
   <body>
     <!-- imagem de fundo -->
-    <img src="./assets/img/bg-main-desktop.png" alt="imagem-fundo" class="bg-imagem-desktop"/>
-    <img src="./assets/img/bg-main-mobile.png" alt="imagem-fundo-mobile" class="bg-imagem-mobile"/>
+    <img
+      src="./assets/img/bg-main-desktop.png"
+      alt="imagem-fundo"
+      class="bg-imagem-desktop"
+    />
+    <img
+      src="./assets/img/bg-main-mobile.png"
+      alt="imagem-fundo-mobile"
+      class="bg-imagem-mobile"
+    />
 
     <div class="container">
       <section class="display-cartao">
-               <div class="cartao-frente">
-          <img src="./assets/img/bg-card-front.png" alt="frente do cartao" class="cartao-imagem-frente"/>
-          <img src="./assets/img/card-logo.svg"   alt="logo do cartao branco" class="cartao-logo"/>           
-          
+        <div class="cartao-frente">
+          <img
+            src="./assets/img/bg-card-front.png"
+            alt="frente do cartao"
+            class="cartao-imagem-frente"
+          />
+          <img
+            src="./assets/img/card-logo.svg"
+            alt="logo do cartao branco"
+            class="cartao-logo"
+          />
+
           <!-- Dados do cartao -->
           <p class="numero-cartao-display">0000 0000 0000 0000</p>
           <p class="nome-cartao-display">Jane Appleseed</p>
@@ -41,32 +61,70 @@
           <p class="expiracao-ano-display">0000</p>
         </div>
         <div class="cartao-verso">
-          <img  src="./assets/img/bg-card-back.png" alt="verso do cartao"  class="cartao-imagem-verso"/>
-           <p class="cvc-cartao">000</p>
+          <img
+            src="./assets/img/bg-card-back.png"
+            alt="verso do cartao"
+            class="cartao-imagem-verso"
+          />
+          <p class="cvc-cartao">000</p>
         </div>
       </section>
 
       <!-- Formulario -->
       <section class="detalhe-cartao">
         <form action="/action_page.php" id="formulario" name="formulario">
-
           <label for="nome-cartao">Nome no cartao</label>
-          <input id="nome-cartao" class="nome-cartao" type="text" name="nome-cartao" placeholder="e.g. Jane Appleseed" oninput="inputName()"/>
+          <input
+            id="nome-cartao"
+            class="nome-cartao"
+            type="text"
+            name="nome-cartao"
+            placeholder="e.g. Jane Appleseed"
+            oninput="inputName()"
+          />
           <p id="errorMsg"></p>
 
           <label for="numero-cartao">Numero do cartao</label>
-          <input id="numero-cartao" class="numero-cartao" type="text" name="numero-cartao" placeholder="e.g. 1234 5678 9123 0000" oninput="inputCardNum()"/>
+          <input
+            id="numero-cartao"
+            class="numero-cartao"
+            type="text"
+            name="numero-cartao"
+            placeholder="e.g. 1234 5678 9123 0000"
+            oninput="inputCardNum()"
+          />
           <p id="card-num-error"></p>
 
           <div class="flex">
-            <label for="expiracao-data" class="expiracao-data">Exp. Date (MM/YY) <br />
-              <input class="expiracao" type="text" name="expiracao-data" placeholder="MM" oninput="inputMM()"/>
-              <input class="expiracao" type="text" name="expiracao-data" placeholder="YYYY" oninput="inputYY()"/>
+            <label for="expiracao-data" class="expiracao-data"
+              >Exp. Date (MM/YY) <br />
+              <input
+                class="expiracao"
+                type="text"
+                name="expiracao-data"
+                placeholder="MM"
+                oninput="inputMM()"
+              />
+              <input
+                class="expiracao"
+                type="text"
+                name="expiracao-data"
+                placeholder="YYYY"
+                oninput="inputYY()"
+              />
               <p id="expiry-error"></p>
             </label>
 
-            <label for="cvc" class="cvc">CVC <br />
-              <input class="cvc" id="cvc" type="text" name="cvc" placeholder="e.g. 123" oninput="inputCvc()"/>
+            <label for="cvc" class="cvc"
+              >CVC <br />
+              <input
+                class="cvc"
+                id="cvc"
+                type="text"
+                name="cvc"
+                placeholder="e.g. 123"
+                oninput="inputCvc()"
+              />
               <p id="error-cvc"></p>
             </label>
           </div>
