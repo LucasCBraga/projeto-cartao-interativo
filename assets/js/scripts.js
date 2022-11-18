@@ -114,7 +114,7 @@ function massValidade() {
       expiryErrorMsg.innerHTML = "Formato Errado!";
     }
   }
-}
+
 
 function validadeCvc() {
   let cvcErrorMsg = document.getElementById("error-cvc");
@@ -145,14 +145,15 @@ if (
 } else {
   return true;
 }
+}
 
 //Botão de envio//
 submit.addEventListener("click", function () {
   massValidade();
   if (massValidade() == false) {
-    event.preventDefault();
+    Event.preventDefault();
   } else {
-    event.preventDefault();
+    Event.preventDefault();
 
     form.classList.add("hidden");
     thankYouSection.classList.remove("hidden");
