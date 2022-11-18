@@ -32,7 +32,7 @@ function inputCardNum() {
     if (sessaoNumeroCartao !== null) {
         formatoNumeroCartao = sessaoNumeroCartao.join("");
     } 
-    //Se o número do cartão formatado for diferente do que é mostrado, altere//
+    //Se o número do cartão formatado for diferente do que é mostrado, altere o valor//
     if (inputNumeroCartao !== formatoNumeroCartao) {
         numeroCartao.value = formatoNumeroCartao;
     }
@@ -40,6 +40,15 @@ function inputCardNum() {
     if (numeroCartao.value === "") {
         numeroNoCartao.innerHTML = numeroCartao.placeholder;
     }
+}
 
-
+function inputMM() {
+    let formatoMM = expiracao[0].value;
+    formatoMM = formatoMM.substring(0, 2);
+    expiracao[0].value = formatoMM;
+    if (expiracao[0].value === "") {
+        expericaoMes.innerHTML = "00";
+    } else {
+        expericaoMes.innerHTML = expiracao[0].value;
+    }
 }
