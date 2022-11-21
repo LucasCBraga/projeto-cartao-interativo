@@ -1,10 +1,11 @@
-const cardholder = document.getElementById("nome-cartao");
+const titularCartao = document.getElementById("nome-cartao");
 const numeroCartao = document.getElementById("numero-cartao");
-const expiry = Array.from(document.querySelectorAll(".expiracao"));
+const expiracao = Array.from(document.querySelectorAll(".expiracao"));
 const cvc = document.getElementById("cvc");
 const submit = document.getElementById("submit");
-const nameOnCard = document.querySelector(".nome-cartao-display");
+const nomeNoCartao = document.querySelector(".nome-cartao-display");
 const numeroNoCartao = document.querySelector(".numero-cartao-display");
+// parei aqui //
 const expMM = document.querySelector(".expiracao-mes-display");
 const expYY = document.querySelector(".expiracao-ano-display");
 const cvcDisplay = document.querySelector(".cvc-cartao");
@@ -15,10 +16,10 @@ const form = document.getElementById("formulario");
 const expiryErrorMsg = document.getElementById("expiry-error");
 
 function inputName() {
-  nameOnCard.innerHTML = cardholder.value;
-  thankYou.innerHTML = `Thank You ${cardholder.value}`;
-  if (nameOnCard.innerHTML == "") {
-    nameOnCard.innerHTML = cardholder.placeholder;
+    nomeNoCartao.innerHTML = titularCartao.value;
+  thankYou.innerHTML = `Thank You ${titularCartao.value}`;
+  if (nomeNoCartao.innerHTML == "") {
+    nomeNoCartao.innerHTML = titularCartao.placeholder;
   }
 }
 
@@ -42,23 +43,23 @@ function inputCardNum() {
   }
 }
 function inputMM() {
-  let formattedMM = expiry[0].value;
+  let formattedMM = expiracao[0].value;
   formattedMM = formattedMM.substring(0, 2);
-  expiry[0].value = formattedMM;
-  if (expiry[0].value === "") {
+  expiracao[0].value = formattedMM;
+  if (expiracao[0].value === "") {
     expMM.innerHTML = "00";
   } else {
-    expMM.innerHTML = expiry[0].value;
+    expMM.innerHTML = expiracao[0].value;
   }
 }
 function inputYY() {
-  let formattedYY = expiry[1].value;
+  let formattedYY = expiracao[1].value;
   formattedYY = formattedYY.substring(0, 4);
-  expiry[1].value = formattedYY;
-  if (expiry[1].value === "") {
+  expiracao[1].value = formattedYY;
+  if (expiracao[1].value === "") {
     expYY.innerHTML = "0000";
   } else {
-    expYY.innerHTML = expiry[1].value;
+    expYY.innerHTML = expiracao[1].value;
   }
 }
 function inputCvc() {
@@ -77,7 +78,7 @@ function massValidate() {
   function validateName() {
     let cardholderExp = /^[A-Z a-z]+$/;
     let errorMsg = document.getElementById("errorMsg");
-    if (cardholder.value.match(cardholderExp)) {
+    if (titularCartao.value.match(cardholderExp)) {
       errorMsg.textContent = "";
     } else {
       errorMsg.innerHTML = "Please enter cardholder name!";
@@ -97,14 +98,14 @@ function massValidate() {
     let expMonth = /^(0[0-9]|1[1-2]){2}$/;
     let expYear = /^[0-9][0-2]{4}$/;
 
-    if (expiry[0].value.match(expMonth)) {
+    if (expiracao[0].value.match(expMonth)) {
       expiryErrorMsg.innerHTML = "";
     } else if (
-      expiry[0].value.match(expMonth) &&
-      expiry[1].value.match(expYear)
+        expiracao[0].value.match(expMonth) &&
+        expiracao[1].value.match(expYear)
     ) {
       expiryErrorMsg.innerHTML = "";
-    } else if (expiry[0] == "") {
+    } else if (expiracao[0] == "") {
       expiryErrorMsg.innerHTML = "Can't be blank!";
     } else {
       expiryErrorMsg.innerHTML = "Wrong format!";
@@ -126,7 +127,7 @@ function massValidate() {
   validateExpiry();
   validateCvc();
   if (
-    nameOnCard.innerHTML == cardholder.placeholder ||
+    nomeNoCartao.innerHTML == titularCartao.placeholder ||
     numeroNoCartao.innerHTML == numeroCartao.placeholder ||
     expMM.innerHTML == "00" ||
     expYY.innerHTML == "0000" ||
@@ -159,15 +160,15 @@ continueBtn.addEventListener("click", function () {
   event.preventDefault();
   thankYouSection.classList.add("hidden");
   form.classList.remove("hidden");
-  nameOnCard.innerHTML = cardholder.placeholder;
+  nomeNoCartao.innerHTML = titularCartao.placeholder;
   numeroNoCartao.innerHTML = numeroCartao.placeholder;
   expMM.innerHTML = "00";
   expYY.innerHTML = "0000";
   cvcDisplay.innerHTML = "000";
-  cardholder.value = "";
+  titularCartao.value = "";
   numeroCartao.value = "";
-  expiry[0].value = "";
-  expiry[1].value = "";
+  expiracao[0].value = "";
+  expiracao[1].value = "";
   cvc.value = "";
   expiryErrorMsg.innerHTML = "";
 });
