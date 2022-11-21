@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <!-- Scripts -->
-    <script src="./assets/js/scripts.js" defer></script>
+    
   </head>
 
   <body>
@@ -72,7 +72,7 @@
 
       <!-- Formulario -->
       <section class="detalhe-cartao">
-        <form action="/action_page.php" id="formulario" name="formulario">
+        <form action="/action_page.php" id="formulario" name="meuFormulario">
           <label for="nome-cartao">Nome no cartao</label>
           <input
             id="nome-cartao"
@@ -84,13 +84,13 @@
           />
           <p id="errorMsg"></p>
 
-          <label for="numero-cartao">Numero do cartao</label>
+          <label class="numero-cartao" for="numero-cartao">Numero do cartao</label>
           <input
             id="numero-cartao"
             class="numero-cartao"
             type="text"
             name="numero-cartao"
-            placeholder="e.g. 1234 5678 9123 0000"
+            placeholder="1234 5678 9123 0000"
             oninput="inputCardNum()"
           />
           <p id="card-num-error"></p>
@@ -140,6 +140,6 @@
         </div>
       </section>
     </div>
-    <script src="./assets/js/scripts.js"></script>
+    <script src="./assets/js/script2.js"></script>
   </body>
 </html>

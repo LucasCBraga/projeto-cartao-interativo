@@ -151,9 +151,9 @@ if (
 submit.addEventListener("click", function () {
   massValidade();
   if (massValidade() == false) {
-    Event.preventDefault();
+    event.preventDefault();
   } else {
-    Event.preventDefault();
+    event.preventDefault();
 
     form.classList.add("hidden");
     thankYouSection.classList.remove("hidden");
@@ -162,7 +162,7 @@ submit.addEventListener("click", function () {
 
 // Botao Continuar //
 continueBtn.addEventListener("click", function () {
-  Event.preventDefault();
+  event.preventDefault();
   thankYouSection.classList.add("hidden");
   form.classList.remove("hidden");
   nomeNoCartao.innerHTML = nomeCartao.placeholder;
