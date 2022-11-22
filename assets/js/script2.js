@@ -5,9 +5,8 @@ const cvc = document.getElementById("cvc");
 const submit = document.getElementById("submit");
 const nomeNoCartao = document.querySelector(".nome-cartao-display");
 const numeroNoCartao = document.querySelector(".numero-cartao-display");
-// parei aqui //
-const expMM = document.querySelector(".expiracao-mes-display");
-const expYY = document.querySelector(".expiracao-ano-display");
+const expiracaoMes = document.querySelector(".expiracao-mes-display");
+const expiracaoAno = document.querySelector(".expiracao-ano-display");
 const cvcDisplay = document.querySelector(".cvc-cartao");
 const thankYou = document.getElementById("thank-you-header");
 const thankYouSection = document.getElementById("thank-you");
@@ -15,51 +14,52 @@ const continueBtn = document.getElementById("continue");
 const form = document.getElementById("formulario");
 const expiryErrorMsg = document.getElementById("expiry-error");
 
+// Formulário //
 function inputName() {
-    nomeNoCartao.innerHTML = titularCartao.value;
+  nomeNoCartao.innerHTML = titularCartao.value;
   thankYou.innerHTML = `Thank You ${titularCartao.value}`;
   if (nomeNoCartao.innerHTML == "") {
     nomeNoCartao.innerHTML = titularCartao.placeholder;
   }
 }
 
-function inputCardNum() {
-  let cardNumberInput = numeroCartao.value;
-  // Do not allow users to write invalid characters
-  let formattedCardNumber = cardNumberInput.replace(/[^\d]/g, "");
-  formattedCardNumber = formattedCardNumber.substring(0, 16);
-  // Split the card number is groups of 4
-  let cardNumberSections = formattedCardNumber.match(/\d{1,4}/g);
-  if (cardNumberSections !== null) {
-    formattedCardNumber = cardNumberSections.join(" ");
+function inputNumeroCartao() {
+  let cartaoNumeroInput = numeroCartao.value;
+  // Não permite que usuários escrevam caracteres inválidos //
+  let formatacaoNumeroCartao = cartaoNumeroInput.replace(/[^\d]/g, "");
+  formatacaoNumeroCartao = formatacaoNumeroCartao.substring(0, 16);
+  // Divida o número do cartão em grupos de 4 //
+  let secaoNumeroCartao = formatacaoNumeroCartao.match(/\d{1,4}/g);
+  if (secaoNumeroCartao !== null) {
+    formatacaoNumeroCartao = secaoNumeroCartao.join(" ");
   }
-  // If the formmattedCardNumber is different to what is shown, change the value
-  if (cardNumberInput !== formattedCardNumber) {
-    numeroCartao.value = formattedCardNumber;
+  // Se o formatacaoNumeorCartao for diferente do que é mostrado, altere o valor //
+  if (cartaoNumeroInput !== formatacaoNumeroCartao) {
+    numeroCartao.value = formatacaoNumeroCartao;
   }
   numeroNoCartao.innerHTML = numeroCartao.value;
   if (numeroCartao.value === "") {
     numeroNoCartao.innerHTML = numeroCartao.placeholder;
   }
 }
-function inputMM() {
+function inputMes() {
   let formattedMM = expiracao[0].value;
   formattedMM = formattedMM.substring(0, 2);
   expiracao[0].value = formattedMM;
   if (expiracao[0].value === "") {
-    expMM.innerHTML = "00";
+    expiracaoMes.innerHTML = "00";
   } else {
-    expMM.innerHTML = expiracao[0].value;
+    expiracaoMes.innerHTML = expiracao[0].value;
   }
 }
-function inputYY() {
+function inputAno() {
   let formattedYY = expiracao[1].value;
   formattedYY = formattedYY.substring(0, 4);
   expiracao[1].value = formattedYY;
   if (expiracao[1].value === "") {
-    expYY.innerHTML = "0000";
+    expiracaoAno.innerHTML = "0000";
   } else {
-    expYY.innerHTML = expiracao[1].value;
+    expiracaoAno.innerHTML = expiracao[1].value;
   }
 }
 function inputCvc() {
@@ -75,62 +75,64 @@ function inputCvc() {
 }
 
 function massValidate() {
-  function validateName() {
+  function validadeNome() {
     let cardholderExp = /^[A-Z a-z]+$/;
     let errorMsg = document.getElementById("errorMsg");
     if (titularCartao.value.match(cardholderExp)) {
       errorMsg.textContent = "";
     } else {
-      errorMsg.innerHTML = "Please enter cardholder name!";
+      errorMsg.innerHTML = "Por favor, digite o nome do titular do cartão!";
     }
   }
-  function validateCard() {
+  function validadeCartao() {
     let cardNumError = document.getElementById("card-num-error");
     if (numeroCartao.value.length > 0 && numeroCartao.value.length < 16) {
-      cardNumError.innerHTML = "Wrong format!";
+      cardNumError.innerHTML = "Formato incorreto!";
     } else if (numeroCartao.value == "") {
-      cardNumError.innerHTML = "Can't be blank!";
+      cardNumError.innerHTML = "Não pode ficar em branco!";
     } else {
       cardNumError.innerHTML = "";
     }
   }
-  function validateExpiry() {
-    let expMonth = /^(0[0-9]|1[1-2]){2}$/;
-    let expYear = /^[0-9][0-2]{4}$/;
+  function validadeExpiracao() {
+    let expMes = /^(0[0-9]|1[1-2]){2}$/;
+    let expAno = /^[0-9][0-2]{4}$/;
 
-    if (expiracao[0].value.match(expMonth)) {
+    if (expiracao[0].value.match(expMes)) {
       expiryErrorMsg.innerHTML = "";
     } else if (
-        expiracao[0].value.match(expMonth) &&
-        expiracao[1].value.match(expYear)
+      expiracao[0].value.match(expMes) &&
+      expiracao[1].value.match(expAno)
     ) {
       expiryErrorMsg.innerHTML = "";
     } else if (expiracao[0] == "") {
-      expiryErrorMsg.innerHTML = "Can't be blank!";
+      expiryErrorMsg.innerHTML = "Não pode ficar em branco!";
     } else {
-      expiryErrorMsg.innerHTML = "Wrong format!";
+      expiryErrorMsg.innerHTML = "Formato incorreto!";
     }
   }
-  function validateCvc() {
+  function validadeCvc() {
     let cvcErrorMsg = document.getElementById("error-cvc");
     let cvcExp = /^[0-9]{3}$/;
     if (cvc.value === "") {
-      cvcErrorMsg.innerHTML = "Can't be blank";
+      cvcErrorMsg.innerHTML = "Não pode ficar em branco!";
     } else if (cvc.value.match(cvcExp)) {
       cvcErrorMsg.innerHTML = "";
     } else {
-      cvcErrorMsg.innerHTML = "Wrong format!";
+      cvcErrorMsg.innerHTML = "Formato incorreto!";
     }
   }
-  validateCard();
-  validateName();
-  validateExpiry();
-  validateCvc();
+
+  validadeNome();
+  validadeCartao();
+  validadeExpiracao();
+  validadeCvc();
+
   if (
     nomeNoCartao.innerHTML == titularCartao.placeholder ||
     numeroNoCartao.innerHTML == numeroCartao.placeholder ||
-    expMM.innerHTML == "00" ||
-    expYY.innerHTML == "0000" ||
+    expiracaoMes.innerHTML == "00" ||
+    expiracaoAno.innerHTML == "0000" ||
     cvcDisplay.innerHTML == "000" ||
     (numeroCartao.value.length > 0 && numeroCartao.value.length < 16)
   ) {
@@ -139,8 +141,7 @@ function massValidate() {
     return true;
   }
 }
-// Submit Button
-
+// Botão de Envio //
 submit.addEventListener("click", function () {
   massValidate();
   if (massValidate() == false) {
@@ -151,19 +152,18 @@ submit.addEventListener("click", function () {
     form.classList.add("hidden");
     thankYouSection.classList.remove("hidden");
   }
-  //   console.log(cardNumber.value.length > 0 && cardNumber.value.length < 16);
+  // console.log(cardNumber.value.length > 0 && cardNumber.value.length < 16); //
 });
 
-// Continue Button
-
+// Continuação Botão //
 continueBtn.addEventListener("click", function () {
   event.preventDefault();
   thankYouSection.classList.add("hidden");
   form.classList.remove("hidden");
   nomeNoCartao.innerHTML = titularCartao.placeholder;
   numeroNoCartao.innerHTML = numeroCartao.placeholder;
-  expMM.innerHTML = "00";
-  expYY.innerHTML = "0000";
+  expiracaoMes.innerHTML = "00";
+  expiracaoAno.innerHTML = "0000";
   cvcDisplay.innerHTML = "000";
   titularCartao.value = "";
   numeroCartao.value = "";

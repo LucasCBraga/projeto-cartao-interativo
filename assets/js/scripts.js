@@ -4,6 +4,7 @@ const expiracao = Array.from(document.querySelectorAll(".expiracao"));
 const cvc = document.getElementById("cvc");
 const submit = document.getElementById("submit");
 const numeroNoCartao = document.querySelector("numero-cartao-display");
+// parei aqui //
 const nomeNoCartao = document.querySelector(".nome-cartao-display");
 const expericaoMes = document.querySelector(".expiracao-mes-display");
 const expericaoAno = document.querySelector(".expiracao-ano-display");
