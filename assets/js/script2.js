@@ -12,12 +12,12 @@ const thankYou = document.getElementById("thank-you-header");
 const thankYouSection = document.getElementById("thank-you");
 const continueBtn = document.getElementById("continue");
 const form = document.getElementById("formulario");
-const expiryErrorMsg = document.getElementById("expiry-error");
+const erroExpericaoMsg = document.getElementById("expiry-error");
 
 // Formulário //
 function inputName() {
   nomeNoCartao.innerHTML = titularCartao.value;
-  thankYou.innerHTML = `Thank You ${titularCartao.value}`;
+  thankYou.innerHTML = `Obrigado ${titularCartao.value}`;
   if (nomeNoCartao.innerHTML == "") {
     nomeNoCartao.innerHTML = titularCartao.placeholder;
   }
@@ -63,10 +63,10 @@ function inputAno() {
   }
 }
 function inputCvc() {
-  let formattedCvc = cvc.value;
+  let formatacaoCvc = cvc.value;
 
-  formattedCvc = formattedCvc.substring(0, 3);
-  cvc.value = formattedCvc;
+  formatacaoCvc = formatacaoCvc.substring(0, 3);
+  cvc.value = formatacaoCvc;
   if (cvc.value === "") {
     cvcDisplay.innerHTML = "000";
   } else {
@@ -74,7 +74,7 @@ function inputCvc() {
   }
 }
 
-function massValidate() {
+function totalValidade() {
   function validadeNome() {
     let cardholderExp = /^[A-Z a-z]+$/;
     let errorMsg = document.getElementById("errorMsg");
@@ -85,13 +85,13 @@ function massValidate() {
     }
   }
   function validadeCartao() {
-    let cardNumError = document.getElementById("card-num-error");
+    let erroNumeroCartao = document.getElementById("card-num-error");
     if (numeroCartao.value.length > 0 && numeroCartao.value.length < 16) {
-      cardNumError.innerHTML = "Formato incorreto!";
+      erroNumeroCartao.innerHTML = "Formato incorreto!";
     } else if (numeroCartao.value == "") {
-      cardNumError.innerHTML = "Não pode ficar em branco!";
+      erroNumeroCartao.innerHTML = "Não pode ficar em branco!";
     } else {
-      cardNumError.innerHTML = "";
+      erroNumeroCartao.innerHTML = "";
     }
   }
   function validadeExpiracao() {
@@ -99,27 +99,27 @@ function massValidate() {
     let expAno = /^[0-9][0-2]{4}$/;
 
     if (expiracao[0].value.match(expMes)) {
-      expiryErrorMsg.innerHTML = "";
+      erroExpiracaoMsg.innerHTML = "";
     } else if (
       expiracao[0].value.match(expMes) &&
       expiracao[1].value.match(expAno)
     ) {
-      expiryErrorMsg.innerHTML = "";
+      erroExpiracaoMsg.innerHTML = "";
     } else if (expiracao[0] == "") {
-      expiryErrorMsg.innerHTML = "Não pode ficar em branco!";
+      erroExpiracaoMsg.innerHTML = "Não pode ficar em branco!";
     } else {
-      expiryErrorMsg.innerHTML = "Formato incorreto!";
+      erroExpiracaoMsg.innerHTML = "Formato incorreto!";
     }
   }
   function validadeCvc() {
-    let cvcErrorMsg = document.getElementById("error-cvc");
+    let erroCvcMsg = document.getElementById("error-cvc");
     let cvcExp = /^[0-9]{3}$/;
     if (cvc.value === "") {
-      cvcErrorMsg.innerHTML = "Não pode ficar em branco!";
+      erroCvcMsg.innerHTML = "Não pode ficar em branco!";
     } else if (cvc.value.match(cvcExp)) {
-      cvcErrorMsg.innerHTML = "";
+      erroCvcMsg.innerHTML = "";
     } else {
-      cvcErrorMsg.innerHTML = "Formato incorreto!";
+      erroCvcMsg.innerHTML = "Formato incorreto!";
     }
   }
 
@@ -143,8 +143,8 @@ function massValidate() {
 }
 // Botão de Envio //
 submit.addEventListener("click", function () {
-  massValidate();
-  if (massValidate() == false) {
+  totalValidade();
+  if (totalValidade() == false) {
     event.preventDefault();
   } else {
     event.preventDefault();
@@ -170,5 +170,5 @@ continueBtn.addEventListener("click", function () {
   expiracao[0].value = "";
   expiracao[1].value = "";
   cvc.value = "";
-  expiryErrorMsg.innerHTML = "";
+  erroExpericaoMsg.innerHTML = "";
 });
