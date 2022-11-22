@@ -12,7 +12,7 @@ const thankYou = document.getElementById("thank-you-header");
 const thankYouSection = document.getElementById("thank-you");
 const continueBtn = document.getElementById("continue");
 const form = document.getElementById("formulario");
-const erroExpericaoMsg = document.getElementById("expiry-error");
+const erroExpiracaoMsg = document.getElementById("expiry-error");
 
 // Formulário //
 function inputName() {
@@ -79,7 +79,7 @@ function totalValidade() {
     let cardholderExp = /^[A-Z a-z]+$/;
     let errorMsg = document.getElementById("errorMsg");
     if (titularCartao.value.match(cardholderExp)) {
-      errorMsg.textContent = "";
+      errorMsg.textContent = "Por favor, digite o nome do titular do cartão!";
     } else {
       errorMsg.innerHTML = "Por favor, digite o nome do titular do cartão!";
     }
@@ -170,5 +170,5 @@ continueBtn.addEventListener("click", function () {
   expiracao[0].value = "";
   expiracao[1].value = "";
   cvc.value = "";
-  erroExpericaoMsg.innerHTML = "";
+  erroExpiracaoMsg.innerHTML = "";
 });
