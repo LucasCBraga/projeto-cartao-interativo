@@ -79,7 +79,7 @@ function totalValidade() {
     let cardholderExp = /^[A-Z a-z]+$/;
     let errorMsg = document.getElementById("errorMsg");
     if (titularCartao.value.match(cardholderExp)) {
-      errorMsg.textContent = "Por favor, digite o nome do titular do cartão!";
+      errorMsg.textContent = "";
     } else {
       errorMsg.innerHTML = "Por favor, digite o nome do titular do cartão!";
     }
