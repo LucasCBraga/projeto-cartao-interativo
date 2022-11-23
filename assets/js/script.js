@@ -43,9 +43,9 @@ function inputNumeroCartao() {
   }
 }
 function inputMes() {
-  let formattedMM = expiracao[0].value;
-  formattedMM = formattedMM.substring(0, 2);
-  expiracao[0].value = formattedMM;
+  let formatacaoMes = expiracao[0].value;
+  formatacaoMes = formatacaoMes.substring(0, 2);
+  expiracao[0].value = formatacaoMes;
   if (expiracao[0].value === "") {
     expiracaoMes.innerHTML = "00";
   } else {
@@ -53,9 +53,9 @@ function inputMes() {
   }
 }
 function inputAno() {
-  let formattedYY = expiracao[1].value;
-  formattedYY = formattedYY.substring(0, 4);
-  expiracao[1].value = formattedYY;
+  let formatacaoAno = expiracao[1].value;
+  formatacaoAno = formatacaoAno.substring(0, 4);
+  expiracao[1].value = formatacaoAno;
   if (expiracao[1].value === "") {
     expiracaoAno.innerHTML = "0000";
   } else {
@@ -76,9 +76,9 @@ function inputCvc() {
 
 function totalValidade() {
   function validadeNome() {
-    let cardholderExp = /^[A-Z a-z]+$/;
+    let cartaoTitularExp = /^[A-Z a-z]+$/;
     let errorMsg = document.getElementById("errorMsg");
-    if (titularCartao.value.match(cardholderExp)) {
+    if (titularCartao.value.match(cartaoTitularExp)) {
       errorMsg.textContent = "";
     } else {
       errorMsg.innerHTML = "Por favor, digite o nome do titular do cartão!";

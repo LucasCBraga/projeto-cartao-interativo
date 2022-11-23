@@ -2,13 +2,12 @@
 
 :root {
   --debug-red: red;
- 
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; 
+  padding: 0;
   font-family: "Space Grotesk", sans-serif;
 }
 
